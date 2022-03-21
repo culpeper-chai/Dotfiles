@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $* == *--deps* ]]
+then
+	if [[ $(uname -v) == *Debian* ]]
+	then
+		sudo apt update
+		sudo apt install vim emacs i3 zsh
+	fi
+fi
+
+cp ./.* $HOME/
+cp -r ./.config $HOME/
+cp -r ./.emacs.d $HOME/
+cp -r ./.vim $HOME/

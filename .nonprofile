@@ -1,0 +1,23 @@
+#!/bin/bash
+# This file is for commands that are run when the graphical session starts. I used to put this stuff in my '~/.profile' file, but when I stopped using a DM the '~/.profile' file wasn't being called when X started, so I moved it to its own file.
+
+
+##############
+## KEYBOARD ##
+##############
+
+syndaemon -i 1 -t -K -R & # Touchpad disabled while typing
+setxkbmap -option 'caps:ctrl_modifier' # Caps Lock = Ctrl, because actual Caps Lock is basically pointless
+setxkbmap -option "compose:ralt" # Right Alt = 'Compose' key
+
+# Toggle between English and Russian keyboard layouts with Ctrl+Shift
+setxkbmap -layout us,ru -variant ,phonetic_winkeys
+setxkbmap -option 'grp:rctrl_rshift_toggle'
+
+
+############################
+## DAEMONS / BG PROCESSES ##
+############################
+
+picom & 
+redshift &
